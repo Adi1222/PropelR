@@ -1,0 +1,23 @@
+{% extends 'PropelRapp/base.html' %}
+
+{% block title %}Algorithm Edit{% endblock %}
+
+{% block content %}
+        <div class="container">
+            <div class="login-page">
+                    <div class="banner">
+                         <h2 class="head">Algorithm</h2>
+                    </div>
+                    <form method="post">
+                        {% csrf_token %}
+                        <div class="form-group">
+                        {{ form.as_p }}
+                        </div>
+                        <input class="btn btn-primary" type="submit" value="Save" />
+                    </form>
+            </div>
+        </div>
+
+{% endblock %}
+
+<button type="submit" class="btn">Submit</button>

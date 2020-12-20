@@ -1,0 +1,26 @@
+{% load static %}
+<html>
+    <head>
+        <title>login</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+        <link rel="stylesheet" href="{% static 'PropelRapp/login/b2.css' %}" type='text/css'>
+    </head>
+    <body>
+        <div class="container-fluid">
+            <div class="login-page">
+            <!-- <div class="row">-->
+                <div class="login1"> 
+                    <h2 class="head">Login to your account</h2>
+                    <form action="" method="POST">
+                        {% csrf_token %}
+                        <div class="form-group">
+                            {{form.as_p}}
+                        <button type="submit" class="btn" name="submit" value="login">Sign Up</button>
+                    </form>
+                </div>
+        </div>
+    </div>
+    </body>
+</html>

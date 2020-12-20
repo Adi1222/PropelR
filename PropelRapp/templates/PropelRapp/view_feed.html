@@ -1,0 +1,139 @@
+{% extends 'PropelRapp/base.html' %}
+
+{% block title %}Feed{% endblock %}
+{% block content %}
+
+
+<script type="javascript">
+    $(document).ready(function(){
+    $("select#cluster").on("change",function(){
+        //Getting Value
+        var selValue = $("#cluster :selected").text();
+        //Setting Value
+        console.log(selValue);
+    });
+});
+</script>
+
+<script type="text/javascript">
+    $(document).ready(()=>{
+
+
+        $("select#clust").change(function(){
+
+            var cluster_id = $(this).val();
+            var clustervalue = $('#clust :selected').text();
+            console.log(clustervalue);
+            console.log(cluster_id);
+            $('#cam').prop("hidden", false);
+
+            var opt = "";
+            fetchcameras(cluster_id);
+            $('#play').prop("disabled",false);
+
+            $("select#camera1").html('<option selected>--select--</option>');
+
+            function fetchcameras(cluster_id){
+                $.ajax({
+                    url:'{% url 'PropelRapp:get_cameras' %}',
+                    type: 'POST',
+                    data:{cluster_id:cluster_id},
+                })
+                .done(function(response){
+                    for(key in response){
+                        console.log(response[key]['fields']['camname']);
+
+                        opt = "<option>" + response[key]['fields']['camname'] +"</option>";
+                        $("select#camera1").append(opt);
+                    }
+                })
+                .fail(function(){
+                    console.log("Failed");
+                    alert("Select a cluster");
+                });
+            }
+
+        });
+
+
+    });
+</script>
+
+
+    <div class="container-fluid">
+        <br>
+        <!-- /.row -->
+        <!-- ============================================================== -->
+        <!-- Different data widgets -->
+        <!-- ============================================================== -->
+        <!-- .row -->
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="white-box analytics-info">
+                    <div class="login-page">
+
+                            {% if messages %}
+                                <ul>
+                                    {% for message in messages %}
+                                        {% if message.level == DEFAULT_MESSAGE_LEVELS.ERROR %}
+                                            <div class="alert alert-danger">
+                                                {{ message }}
+                                            </div>
+                                        {% endif %}
+                                    {% endfor %}
+                                </ul>
+                            {% endif %}
+
+                        <div class="banner">
+                             <h2 class="head">View Feed</h2>
+                        </div>
+                        <form action="" method="POST">
+                            {% csrf_token %}
+
+
+
+
+                           <div class="form-group">
+                          <label for="sel1" class="lables">Cluster</label>
+                            <select class="form-control" id="clust" name="clust" required>
+                                  <option selected>--select--</option>
+                                      {% for cluster in clusters %}
+                                        <option value="{{ cluster.id }}">{{cluster.cluster_name}}</option>
+                                      {% endfor %}
+                            </select>
+                        </div>
+
+
+
+
+                              <div class="form-group"  id="cam" hidden>
+                                <label for="sel2" class="lables">Cameras</label>
+                                    <select class="form-control" name="camera" id="camera1">
+                                        <option  selected> --select--</option>
+
+                                    </select>
+                              </div>
+
+
+                            <div class="row">
+                                <button id="play" class="btn" name="submit" value="view" disabled>View</button>
+                               <!-- <button id="stop" class="btn" name="submit" value="stop">Stop</button>-->
+
+                            </div>
+                        </form>
+                    </div>
+            </div>
+            </div>
+
+        </div>
+        
+
+    </div>
+
+    <img src="http://127.0.0.1:8000/PropelR/Admin/View-Feed/" alt="http://127.0.0.1:8000/PropelR/Admin/View-Feed/">
+
+
+
+
+
+{% endblock %}

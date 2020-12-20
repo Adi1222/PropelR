@@ -1,0 +1,391 @@
+{% extends 'PropelRapp/base.html' %}
+
+{% block title %}Repeat Visitors{% endblock %}
+
+{% block content %}
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js"></script>
+<script type="text/javascript">
+    $(document).ready(()=>{
+
+        var startdate, enddate;
+
+
+        $('#sd').change(function(){
+            startdate = $('#sd').val();
+        });
+
+        $('#ed').change(function(){
+            enddate = $('#ed').val();
+        });
+
+        $("select#customer").change(function(){
+            var customer_id = $(this).val();
+            var customervalue = $('#customer :selected').text();
+            console.log(customer_id);
+            console.log(customervalue);
+
+            $('#cluster').prop("hidden", false);
+
+            var opt = "";
+            fetchClusters(customer_id);
+
+            $("select#clust1").html('<option selected>--select--</option>');
+
+            function fetchClusters(customer_id){
+                $.ajax({
+                    url:'{% url 'PropelRapp:get_clusters' %}',
+                    type: 'POST',
+                    data:{customer_id:customer_id},
+                })
+                .done(function(response){
+                    for(key in response){
+                        console.log(response[key]['fields']['cluster_name']);
+
+                        opt = "<option value='" + response[key]['pk'] + "'>" + response[key]['fields']['cluster_name'] +"</option>";
+                        $("select#clust1").append(opt);
+                    }
+                })
+                .fail(function(){
+                    console.log("Failed");
+                    alert("Select Customer");
+                });
+            }
+
+        });
+
+            // FOR SUPER-ADMIN
+
+        $("select#clust1").change(function(){
+            console.log(startdate);
+            console.log(enddate);
+
+
+            var cluster_id = $(this).val();
+            var clustervalue = $('#clust1 :selected').text();
+            console.log(clustervalue);
+            console.log(cluster_id);
+            $('#cam1').prop("hidden", false);
+
+            var opt = "";
+            fetchcameras(cluster_id);
+
+
+            $("select#camera").html('<option selected>--select--</option>');
+
+
+            function fetchcameras(cluster_id){
+                $.ajax({
+                    url:'{% url 'PropelRapp:get_cameras' %}',
+                    type: 'POST',
+                    data:{cluster_id:cluster_id},
+                })
+                .done(function(response){
+                    for(key in response){
+                        console.log(response[key]['fields']['camname']);
+
+                        opt = "<option value='" + response[key]['pk'] + "'>" + response[key]['fields']['camname'] +"</option>";
+                        $("select#camera").append(opt);
+                    }
+                })
+                .fail(function(){
+                    console.log("Failed");
+                    alert("Select a cluster");
+                });
+            }
+
+        });
+
+
+
+
+
+
+
+
+
+        $("select#clust").change(function(){
+            console.log(startdate);
+            console.log(enddate);
+
+
+            var cluster_id = $(this).val();
+            var clustervalue = $('#clust :selected').text();
+            console.log(clustervalue);
+            console.log(cluster_id);
+            $('#cam').prop("hidden", false);
+
+            var opt = "";
+            fetchcameras(cluster_id);
+
+
+            $("select#camera1").html('<option selected>--select--</option>');
+
+
+            function fetchcameras(cluster_id){
+                $.ajax({
+                    url:'{% url 'PropelRapp:get_cameras' %}',
+                    type: 'POST',
+                    data:{cluster_id:cluster_id},
+                })
+                .done(function(response){
+                    for(key in response){
+                        console.log(response[key]['fields']['camname']);
+
+                        opt = "<option value='" + response[key]['pk'] + "'>" + response[key]['fields']['camname'] +"</option>";
+                        $("select#camera1").append(opt);
+                    }
+                })
+                .fail(function(){
+                    console.log("Failed");
+                    alert("Select a cluster");
+                });
+            }
+
+        });
+
+
+
+
+
+    //  SUPER-ADMIN
+
+        $("#viewchart1").click(function(){
+
+             var camera = $('#camera :selected').text();
+
+             $(function() {
+                $.ajax({
+                    url: '{% url 'PropelRapp:get_repeat_visitors_data' %}',
+                    type: 'POST',
+                    data:{startdate:startdate, enddate:enddate, camera:camera},
+                })
+                .done(function(data){
+                    console.log("Success");
+                    console.log(data);
+
+                    var ctx = document.getElementById('repeat-visitor-chart1').getContext('2d');
+
+                    new Chart(ctx, {
+                        type: 'bar',
+                        data: {
+                              labels: data.labels,
+                              datasets: [{
+                                label: 'Repeat Visitors',
+                                backgroundColor: 'blue',
+                                data: data.data
+                              }]
+                        },
+                        options: {
+                          responsive: true,
+                          legend: {
+                            position: 'top',
+                          },
+                          title: {
+                            display: true,
+                            text: 'Repeat Visitors Bar Chart'
+                          }
+                        }
+                    });
+                })
+                .fail(function(){
+                    console.log("Failed");
+                    alert("No data Available");
+                });
+             });
+
+        });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        $("#viewchart").click(function(){
+
+             var camera = $('#camera1 :selected').text();
+
+             $(function() {
+                $.ajax({
+                    url: '{% url 'PropelRapp:get_repeat_visitors_data' %}',
+                    type: 'POST',
+                    data:{startdate:startdate, enddate:enddate, camera:camera},
+                })
+                .done(function(data){
+                    console.log("Success");
+                    console.log(data);
+
+                    var ctx = document.getElementById('repeat-visitor-chart').getContext('2d');
+
+                    new Chart(ctx, {
+                        type: 'bar',
+                        data: {
+                              labels: data.labels,
+                              datasets: [{
+                                label: 'Repeat Visitors',
+                                backgroundColor: 'blue',
+                                data: data.data
+                              }]
+                        },
+                        options: {
+                          responsive: true,
+                          legend: {
+                            position: 'top',
+                          },
+                          title: {
+                            display: true,
+                            text: 'Repeat Visitors Bar Chart'
+                          }
+                        }
+                    });
+                })
+                .fail(function(){
+                    console.log("Failed");
+                    alert("No data Available");
+                });
+             });
+
+        });
+
+    });
+</script>
+
+
+     <div class="container-fluid">
+        <div class="row bg-title">
+            <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
+                <h4 class="page-title">Dashboard</h4> </div>
+            <!-- /.col-lg-12 -->
+        </div>
+        <!-- /.row -->
+        <!-- ============================================================== -->
+        <!-- Different data widgets -->
+        <!-- ============================================================== -->
+        <!-- .row -->
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="white-box analytics-info">
+                    <h3 class="box-title">Repeat Visitors</h3>
+                    <br>
+
+                    <div class="row">
+
+                        <div class="col-md-6 col-sm-12">
+                            <div class="form-group inline-block">
+                                <label >Start Date</label>
+                                <input type="date" name="startdate" id="sd"  class="form-control">
+                               </div>
+                        </div>
+
+                        <div class="col-md-6 col-sm-12">
+                            <div class="form-group">
+                                <label >End Date</label>
+                                <input type="date" name="enddate" id="ed" class="form-control">
+                               </div>
+                        </div>
+
+                        {% if request.user.is_superuser %}
+                            <div class="col-md-6 col-sm-12">
+                                <label for="sel1" class="lables">Choose Customer</label>
+                                <select class="form-control" id="customer" name="customer">
+                                      <option selected>--select--</option>
+                                            {% for customer in customers %}
+                                                <option id="{{customer.id}}" value="{{ customer.id }}">{{customer.cust_org}}</option>
+                                            {% endfor %}
+                                </select>
+                            </div>
+
+                            <div class="col-md-6 col-sm-12" id="cluster" hidden>
+                                <label for="sel1" class="lables">Choose Cluster</label>
+                                <select class="form-control" id="clust1" name="clust">
+                                      <option selected>--select--</option>
+
+                                </select>
+                            </div>
+
+                            <br>
+                            <br>
+                            <br>
+                            <br>
+                            <br>
+                            <br>
+                            <br>
+                            <br>
+                            <br>
+
+
+                            <div class="col-md-6 col-sm-12" id="cam1" hidden >
+                              <label for="sel1" class="lables">Choose Camera</label>
+                                <select class="form-control" id="camera" name="camera">
+                                      <option selected>--select--</option>
+                                </select>
+                            </div>
+
+                        {% else %}
+                            <div class="col-md-6 col-sm-12">
+                                  <label for="sel1" class="lables">Choose Cluster</label>
+                                  <select class="form-control" id="clust" name="clust">
+                                          <option selected>--select--</option>
+                                                {% for cluster in clusters %}
+                                                    <option id="{{cluster.id}}" value="{{ cluster.id }}">{{cluster.cluster_name}}</option>
+                                                {% endfor %}
+                                    </select>
+                            </div>
+
+
+
+                            <div class="col-md-6 col-sm-12" id="cam" hidden >
+                                <label for="sel1" class="lables">Choose Camera</label>
+                                <select class="form-control" id="camera1" name="camera">
+                                      <option selected>--select--</option>
+                                </select>
+                            </div>
+                        {% endif %}
+
+                        {% if request.user.is_superuser %}
+                            <input type="button" id="viewchart1" class="btn pull-right" value="View Chart" style="border:2px solid rgb(50, 50, 95);display:inline-block;list-style: none;">
+                        {% else %}
+                            <input type="button" id="viewchart" class="btn pull-right" value="View Chart" style="border:2px solid rgb(50, 50, 95);display:inline-block;list-style: none;">
+                        {% endif %}
+
+                    </div>
+
+
+                    {% if request.user.is_superuser %}
+                        <div class="row">
+
+                            <div id="container1" style="width: 100%;">
+                                 <canvas id="repeat-visitor-chart1"></canvas>
+                            </div>
+
+                        </div>
+                    {% else %}
+                        <div class="row">
+
+                            <div id="container" style="width: 100%;">
+                                 <canvas id="repeat-visitor-chart"></canvas>
+                            </div>
+
+                        </div>
+                    {% endif %}
+
+
+            </div>
+        </div>
+        <!--/.row -->
+        <!--row -->
+        <!-- /.row -->
+
+    </div>
+
+
+{% endblock %}

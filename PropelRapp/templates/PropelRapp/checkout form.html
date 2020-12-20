@@ -1,0 +1,94 @@
+{% extends 'PropelRapp/base.html' %}
+
+
+{% block title %}Checkout Form{% endblock %}
+
+
+{% block content %}
+
+    <div class="container-fluid">
+        <div class="row bg-title">
+            <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
+                <h4 class="page-title">Payment Details</h4> </div>
+            <!-- /.col-lg-12 -->
+        </div>
+        <!-- /.row -->
+        <!-- ============================================================== -->
+        <!-- Different data widgets -->
+        <!-- ============================================================== -->
+        <!-- .row -->
+
+
+                <div class="white-box">
+                            <form action="">
+
+                              <div class="row">
+                                <div class="col-md-6 col-sm-12">
+                                  <h3>User Details</h3>
+                                  <label for="fname"><i class="fa fa-user"></i>&nbsp;&nbsp;&nbsp;Full Name</label>
+                                  <input type="text" id="fname" name="firstname" placeholder="John M. Doe">
+                                  <label for="email"><i class="fa fa-envelope"></i>&nbsp;&nbsp;&nbsp;Email</label>
+                                  <input type="text" id="email" name="email" placeholder="john@example.com">
+                                  <label for="adr"><i class="fa fa-address-card-o"></i>&nbsp;&nbsp;&nbsp;Address</label>
+                                  <input type="text" id="adr" name="address" placeholder="542 W. 15th Street">
+                                  <label for="city"><i class="fa fa-institution"></i>&nbsp;&nbsp;&nbsp;City</label>
+                                  <input type="text" id="city" name="city" placeholder="New York">
+
+                                  <div class="row">
+                                    <div class="col-md-22 col-sm-12">
+                                      <label for="state">State</label>
+                                      <input type="text" id="state" name="state" placeholder="NY">
+                                    </div>
+                                    <div class="col-md-6 col-sm-12">
+                                      <label for="zip">Zip</label>
+                                      <input type="text" id="zip" name="zip" placeholder="10001">
+                                    </div>
+                                  </div>
+                                </div>
+
+                                <div class="col-md-6 col-sm-12">
+                                  <h3>Payment</h3>
+                                  <label for="fname">Accepted Cards</label>
+                                  <div class="icon-container">
+                                    <i class="fa fa-cc-visa" style="color:navy;"></i>
+                                    <i class="fa fa-cc-amex" style="color:blue;"></i>
+                                    <i class="fa fa-cc-mastercard" style="color:red;"></i>
+                                    <i class="fa fa-cc-discover" style="color:orange;"></i>
+                                  </div>
+                                  <label for="cname">Name on Card</label>
+                                  <input type="text" id="cname" name="cardname" placeholder="John More Doe">
+                                  <label for="ccnum">Credit card number</label>
+                                  <input type="text" id="ccnum" name="cardnumber" placeholder="1111-2222-3333-4444">
+                                  <label for="expmonth">Exp Month</label>
+                                  <input type="text" id="expmonth" name="expmonth" placeholder="September">
+
+                                  <div class="row">
+                                    <div class="col-md-6 col-sm-12">
+                                      <label for="expyear">Exp Year</label>
+                                      <input type="text" id="expyear" name="expyear" placeholder="2018">
+                                    </div>
+                                    <div class="col-md-6 col-sm-12">
+                                      <label for="cvv">CVV</label>
+                                      <input type="text" id="cvv" name="cvv" placeholder="352">
+                                    </div>
+                                  </div>
+                                </div>
+
+                              </div>
+                              <label>
+                                <input type="checkbox" checked="checked" name="sameadr"> Shipping address same as billing
+                              </label>
+                              <input type="button" onclick="location.href='subscription plan.html'" value="Confirm and checkout" class="btn">
+                            </form>
+
+
+                    </div>
+
+
+        </div>
+        <!--/.row -->
+        <!--row -->
+        <!-- /.row -->
+    </div>
+
+{% endblock %}

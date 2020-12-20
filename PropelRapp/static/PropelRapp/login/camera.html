@@ -1,0 +1,144 @@
+<html>
+    <head>
+        <title>Camera</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+        <style>
+        body{
+            background-image: linear-gradient(45deg, #93a5cf 0%, #e4efe9 100%);
+        }
+
+      .head{
+          font-size: 25px;
+          font-weight: 600; 
+          text-align: center;
+          color:rgb(45, 54, 73);
+      }
+      .login-page{
+          max-width: 500px;
+          float: none;
+          margin: 3px auto; 
+          padding: 30px;
+          border-radius: 3px;
+          background: white;
+        }
+      .banner {
+            position: relative;
+            height: 80px;  
+            background-color:rgb(103, 175, 216);
+            border-radius: 4px;
+            background-size: cover;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            margin-bottom: 30px;
+            }
+            .banner::after {
+            content: "";
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            }
+      @media (max-width: 767px){
+          .login-page{
+              padding: 15px;
+          }
+      }
+
+      .btn{
+          margin-top: 15px;
+          margin-left: 160px;
+          padding-left: 25px;
+          padding-right: 25px;
+          background-color:rgb(103, 175, 216);
+          color: black;
+          border-radius: 3px solid rgb(103, 175, 216);
+      }
+      .btn:hover{
+          background-color:rgb(45, 54, 73);
+          color: white;
+      }
+      @media (max-width: 767px){
+          .btn{
+              margin-left: 90px;
+          }
+      }
+      .form-control{
+          background-color: rgb(243, 240, 240);
+      }
+      input.checkbox{
+        
+        width: 18px;
+        height: 18px;
+      }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <div class="login-page">
+                    <div class="banner">
+                         <h2 class="head">Camera</h2>
+                    </div>
+                    <form action="" method="POST">
+                      <div class="row">
+                        <div class="form-group col-sm-6">
+                            <label for="ip" class="lables">IP Address</label>
+                            <input type="text" name="user" class="form-control" placeholder="IP Address" required>
+                        </div>
+                        
+                        <div class="form-group col-sm-6">
+                          <label for="cam" class="lables">Camera Username</label>
+                            <input type="text" name="user" class="form-control" placeholder="Username" required>
+                        </div>  
+                      </div>  
+                        <div class="form-group">
+                          <label for="sel1" class="lables">Purpose</label>
+                            <select class="form-control" id="perpose" name="options">
+                                  <option>--select--</option>
+                                  <option>Vehicle</option>
+                                  <option>Person</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                          <label for="sel1" class="lables">Features</label>
+                          <br>
+                          <div class="row">
+                            <div class="col-md-4">
+                              <label class="text-center">
+                                <input type="checkbox" class="checkbox" value=""> Age
+                              </label>
+                            </div>
+                            <div class="col-md-4">
+                              <label>
+                                <input type="checkbox" class="checkbox" value=""> Gender
+                              </label>
+                            </div>
+                            <div class="col-md-4">
+                              <label>
+                                <input type="checkbox" class="checkbox" value=""> Tampering
+                              </label>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="form-group">
+                          <div class="form-group">
+                            <label for="sel1" class="lables">Choose Cluster</label>
+                              <select class="form-control" id="perpose" name="options">
+                                    <option>--select--</option>
+                                    <option>Vehicle</option>
+                                    <option>Person</option>
+                              </select>
+                          </div>
+                        </div>
+                        <div class="form-group">
+                          <label class="lables">Camera ID</label>
+                          <input type="text" name="user" class="form-control" placeholder="Camera ID" required>
+                        </div>
+                        <button type="submit" class="btn">Submit</button>
+                    </form>
+              </div> 
+        </div>
+    </body>
+</html>

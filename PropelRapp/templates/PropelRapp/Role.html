@@ -1,0 +1,226 @@
+{% extends 'PropelRapp/base.html' %}
+
+{% block title %}Roles{% endblock %}
+
+
+
+{% block content %}
+
+		<script type="text/javascript">
+			function printChecked(){
+			var selected = new Array();
+			var chkbox = document.getElementById("tab1");
+			var selchk = document.getElementsByTagName("input");
+			for(var i=0;i < selchk.length;i++)
+			{
+                if(selchk[i].checked)
+                 {
+                    selected.push(selchk[i].value);
+                 }
+			}
+
+			console.log(selected);
+				var items=document.getElementsByName('x');
+				var selectedItems="";
+				for(var i=0; i<items.length; i++){
+					if(items[i].type=='checkbox' && items[i].checked==true)
+						selectedItems+=items[i].value+"\n";
+				}
+
+				console.log(selectedItems);
+			};
+
+			function selectall(source) {
+			    var name = source.name;
+              checkboxes = document.getElementsByName(name);
+              for(var i=0, n=checkboxes.length;i<n;i++) {
+                checkboxes[i].checked = source.checked;
+              }
+            };
+
+		</script>
+
+            <div class="container-fluid">
+                <br>
+                <!-- /.row -->
+                <!-- ============================================================== -->
+                <!-- Different data widgets -->
+                <!-- ============================================================== -->
+                <!-- .row -->
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="white-box analytics-info">
+
+                                <div class="banner">
+                                     <h2 class="head">Roles</h2>
+                                </div>
+                                <form action="" method="POST">
+                                    {% csrf_token %}
+
+
+                            <div class="form-group">
+                                <label class="lables">Role Name</label>
+                              <input type="text" name="role" class="form-control" placeholder="Enter Role Name" required>
+                            </div>
+                            <div class="form-group">
+                                <label class="lables">Description</label>
+                              <input type="text" name="role_desc" class="form-control" placeholder="Type here" required>
+                            </div>
+
+
+
+
+
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <div class="white-box">
+                                    <h3 class="box-title">Details</h3>
+
+                                    <div class="table-responsive" id="tab1">
+                                        <table class="table table-bordered" role="grid">
+                                            <thead>
+                                                <tr>
+                                                    <th>Menu </th>
+                                                    <th>Sub Menu</th>
+                                                </tr>
+                                            </thead>
+                                             <tbody>
+                                                {% for menu in menus %}
+                                                    {% if menu.is_deleted == 'N' %}
+                                                    <tr>
+                                                        <td><input type="checkbox" class="checkbox" onClick="selectall(this)" name="{{menu}}[]" value="{{menu}}">{{menu.menu}}</td>
+                                                        <td>
+                                                            {% for submenu in submenus %}
+                                                                {% if submenu.menu == menu %}
+                                                                    <input style="font-weight: bold;display:inline-block;" type="checkbox" class="checkbox" name="{{menu}}[]" value="{{submenu}}" >{{submenu}}
+                                                                {% endif %}
+                                                            {% endfor %}
+                                                        </td>
+                                                    </tr>
+                                                    {% endif %}
+                                                {% endfor %}
+                                            </tbody>
+                                        </table>
+                                    </div>
+
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!--<p><input type="button" onclick='printChecked()' value="Print Selected Items"/></p>-->
+
+
+                                    <button type="submit" class="btn">Submit</button>
+                                </form>
+                          </div>
+                    </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+{% endblock %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <div class="container-fluid">
+        <br>
+        <!-- /.row -->
+        <!-- ============================================================== -->
+        <!-- Different data widgets -->
+        <!-- ============================================================== -->
+        <!-- .row -->
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="white-box analytics-info">
+                    <div class="login-page">
+                        <div class="banner">
+                             <h2 class="head">Roles</h2>
+                        </div>
+                        <form action="{% url 'PropelRapp:add_role' %}" method="POST">
+                            {% csrf_token %}
+
+
+                            <div class="row">
+                            <div class="form-group col-sm-12">
+                                <label for="role" class="lables">Role</label>
+                                <input type="text" name="role" class="form-control" placeholder="Role" required>
+                            </div>
+                          </div>
+
+                            <div class="row">
+                            <div class="form-group col-sm-12">
+                              <label for="role_desc" class="lables">Description</label>
+                                <div id="test">
+                                <input type="text" name="role_desc" class="form-control" placeholder="Type here" onclick="test()" required>
+                                </div>
+                            </div>
+                          </div>
+
+
+
+
+                            <div class="form-group">
+                              <label for="sel3" class="lables">Choose Menu</label>
+                                <select class="form-control" id="menu" name="menu">
+                                      <option selected>--select--</option>
+                                            {% for menu in menus %}
+                                                <option>{{menu.menu}}</option>
+                                            {% endfor %}
+                                </select>
+                            </div>
+
+
+                            <button type="submit" class="btn">Submit</button>
+                        </form>
+                  </div>
+            </div>
+            </div>
+        </div>
+    </div>

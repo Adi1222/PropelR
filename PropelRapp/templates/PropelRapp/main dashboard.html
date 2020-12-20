@@ -1,0 +1,156 @@
+{% extends 'PropelRapp/base.html'  %}
+
+{% block title %}Dashboard{% endblock %}
+
+{% block content %}
+
+    <div class="container-fluid">
+        <div class="row bg-title">
+            <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
+                <h4 class="page-title">Dashboard</h4> </div>
+            <!-- /.col-lg-12 -->
+        </div>
+        <!-- /.row -->
+        <!-- ============================================================== -->
+        <!-- Different data widgets -->
+        <!-- ============================================================== -->
+        <!-- .row -->
+        <div class="row">
+
+            <div class="col-lg-4 col-sm-6 col-xs-12">
+                <div class="white-box analytics-info">
+                    <h3 class="box-title">Total Visitors</h3>
+                    <ul style="list-style: none;">
+                        <li>
+                            <i class="fas fa-users" style="font-size: 30px; margin-bottom: 14px;"></i>
+                        </li>
+                        <li class="text-right"><i class="ti-arrow-up text-success"></i> <span  style="font-size: 20px;color:green;">Today: {{total_visitors_today}}</span></li>
+                        <li class="text-right"><i class="ti-arrow-up text-success"></i><span  style="font-size: 20px;color:green;">Total: {{total_visitors}}</span></li>
+                    </ul>
+                    <a href="{% url 'PropelRapp:visitor_details_dashboard' %}" style="font-size: 20px; text-align: center;">View Details</a>
+                </div>
+            </div>
+
+
+
+
+            <div class="col-lg-4 col-sm-6 col-xs-12">
+                <div class="white-box analytics-info">
+                    <h3 class="box-title">Gender Count</h3>
+                    <ul style="list-style: none;">
+                        <li>
+                            <i class="fas fa-venus-mars" style="font-size: 30px; margin-bottom: 14px;"></i>
+                        </li>
+                        <!--<li class="text-right"><i class="ti-arrow-up text-success"></i> <span  style="font-size: 20px;color:green;">Today: MALE:{{gender_male_today}}</span></li>
+                        <li class="text-right"><i class="ti-arrow-up text-success"></i><span  style="font-size: 20px;color:green;">Today: FEMALE{{gender_female_today}}</span></li>-->
+                        <li class="text-right"><i class="ti-arrow-up text-success"></i> <span  style="font-size: 20px;color:green;">Male: {{gender_male}}</span></li>
+                        <li class="text-right"><i class="ti-arrow-up text-success"></i><span  style="font-size: 20px;color:green;">Female: {{gender_female}}</span></li>
+
+                    </ul>
+                    <a href="{% url 'PropelRapp:gender_details_dashboard' %}" style="font-size: 20px; text-align: center;">View Details</a>
+                </div>
+            </div>
+
+
+
+
+
+
+            <div class="col-lg-4 col-sm-6 col-xs-12">
+                <div class="white-box analytics-info">
+                    <h3 class="box-title">Vehicle Count</h3>
+                    <ul style="list-style: none;">
+                        <li>
+                            <i class="fas fa-car" style="font-size: 30px; margin-bottom: 14px;"></i>
+                        </li>
+                        <li class="text-right"><i class="ti-arrow-up text-success"></i> <span  style="font-size: 20px;color:green;">Today: {{total_vehicles_today}}</span></li>
+                        <li class="text-right"><i class="ti-arrow-up text-success"></i><span  style="font-size: 20px;color:green;">Total: {{total_vehicles}}</span></li>
+
+                    </ul>
+                    <a href="{% url 'PropelRapp:vehicle_details_dashboard' %}" style="font-size: 20px; text-align: center;">View Details</a>
+                </div>
+            </div>
+
+        </div>
+
+
+
+
+        <div class="row">
+
+            <div class="col-lg-4 col-sm-6 col-xs-12">
+                <div class="white-box analytics-info">
+                    <h3 class="box-title">Repeat Visitors Count</h3>
+                    <ul style="list-style: none;">
+                        <li>
+                            <i class="fas fa-user-tag" style="font-size: 30px; margin-bottom: 14px;"></i>
+                        </li>
+                        <li class="text-right"><i class="ti-arrow-up text-success"></i> <span  style="font-size: 20px;color:green;">Today: {{total_visitors_today}}</span></li>
+                        <li class="text-right"><i class="ti-arrow-up text-success"></i><span  style="font-size: 20px;color:green;">Total: {{total_visitors}}</span></li>
+
+                    </ul>
+                    <a href="{% url 'PropelRapp:repeat_visitor_details_dashboard' %}" style="font-size: 20px; text-align: center;">View Details</a>
+                </div>
+            </div>
+
+
+
+            <div class="col-lg-4 col-sm-6 col-xs-12">
+                <div class="white-box analytics-info">
+                    <h3 class="box-title">Camera Tampering Count</h3>
+                    <ul style="list-style: none;">
+                        <li>
+                            <i class="fas fa-camera" style="font-size: 30px; margin-bottom: 14px;"></i>
+                        </li>
+                        <li class="text-right"><i class="ti-arrow-up text-success"></i> <span class="counter text-success" style="font-size: 40px;">0</span></li>
+                    </ul>
+                    <a href="{% url 'PropelRapp:camera_tampering_details_dashboard' %}" style="font-size: 20px; text-align: center;">View Details</a>
+                </div>
+            </div>
+
+
+
+            <div class="col-lg-4 col-sm-6 col-xs-12">
+                <div class="white-box analytics-info">
+                    <h3 class="box-title">Repeat Vehicle Count</h3>
+                    <ul style="list-style: none;">
+                        <li>
+                            <i class="fas fa-car-alt" style="font-size: 30px; margin-bottom: 14px;"></i>
+                        </li>
+                        <li class="text-right"><i class="ti-arrow-up text-success"></i> <span  style="font-size: 20px;color:green;">Today: {{total_vehicles_today}}</span></li>
+                        <li class="text-right"><i class="ti-arrow-up text-success"></i><span  style="font-size: 20px;color:green;">Total: {{total_vehicles}}</span></li>
+                    </ul>
+                    <a href="{% url 'PropelRapp:repeat_vehicle_details_dashboard' %}" style="font-size: 20px; text-align: center;">View Details</a>
+                </div>
+            </div>
+
+        </div>
+
+
+
+        <div class="row">
+
+            <div class="col-lg-4 col-sm-6 col-xs-12">
+                <div class="white-box analytics-info">
+                    <h3 class="box-title">Age Count</h3>
+                    <ul style="list-style: none;">
+                        <li>
+                            <i class="fas fa-user-tag" style="font-size: 30px; margin-bottom: 14px;"></i>
+                        </li>
+                        <li class="text-right"><i class="ti-arrow-up text-success"></i> <span  style="font-size: 20px;color:green;">0</span></li>
+                        <li class="text-right"><i class="ti-arrow-up text-success"></i><span  style="font-size: 20px;color:green;"></span></li>
+
+                    </ul>
+                    <a href="{% url 'PropelRapp:age_details_dashboard' %}" style="font-size: 20px; text-align: center;">View Details</a>
+                </div>
+            </div>
+
+        </div>
+
+
+        <!--/.row -->
+        <!--row -->
+        <!-- /.row -->
+    </div>
+
+{%  endblock %}

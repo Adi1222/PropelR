@@ -1,0 +1,83 @@
+{% extends 'PropelRapp/base.html' %}
+
+{% block title %}Customer{% endblock %}
+
+{% block content %}
+
+
+    <div class="container-fluid">
+        <br>
+        <!-- /.row -->
+        <!-- ============================================================== -->
+        <!-- Different data widgets -->
+        <!-- ============================================================== -->
+        <!-- .row -->
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="white-box analytics-info">
+                    <div class="login-page">
+                        <div class="banner">
+                             <h2 class="head">Customer</h2>
+                        </div>
+                        <form action="{% url 'PropelRapp:add_customer' %}" method="POST">
+                            {% csrf_token %}
+                          <div class="row">
+                            <div class="form-group col-sm-12">
+                                <label for="ip" class="lables">Customer Organization</label>
+                                <input type="text" name="cust_org" class="form-control" placeholder="Customer Org" required>
+                            </div>
+                          </div>
+
+                            <div class="row">
+                            <div class="form-group col-sm-12">
+                              <label for="cam" class="lables">Customer Acronym</label>
+                                <input type="text" name="cust_acro" class="form-control" placeholder="Acronym" required>
+                            </div>
+                          </div>
+
+
+
+                            <div class="form-group">
+                              <label for="sel1" class="lables">OnBoard Date</label>
+                                <input type="date"  name="onboard" class="form-control">
+                            </div>
+
+
+
+                           <div class="form-group">
+                          <label for="sel2" class="lables">Status</label>
+                            <select class="form-control" id="status" name="status">
+                                  <option selected>--select--</option>
+                                  <option>Active</option>
+                                  <option>Inactive</option>
+                                  <option>Suspended</option>
+                            </select>
+                        </div>
+
+
+
+
+
+                            <div class="form-group">
+                              <div class="form-group">
+                                <label for="sel3" class="lables">Choose Bill Plan</label>
+                                    <select name="bill" class="form-control">
+                                        <option  selected> --select--</option>
+                                            {% for bill in bills %}
+                                                <option>{{bill.billplan}}</option>
+                                            {% endfor %}
+                                    </select>
+                              </div>
+                            </div>
+
+
+                            <button type="submit" class="btn">Submit</button>
+                        </form>
+                  </div>
+            </div>
+            </div>
+        </div>
+    </div>
+
+
+{% endblock %}

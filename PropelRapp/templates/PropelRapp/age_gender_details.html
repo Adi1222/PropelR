@@ -1,0 +1,56 @@
+{% extends 'PropelRapp/base.html' %}
+
+{% block title %}Age Gender Count{% endblock %}
+
+{% block content %}
+
+            <div class="container-fluid">
+                <div class="row bg-title">
+                    <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
+                        <h4 class="page-title">Dashboard</h4> </div>
+                    <!-- /.col-lg-12 -->
+                </div>
+                <!-- /.row -->
+                <!-- ============================================================== -->
+                <!-- Different data widgets -->
+                <!-- ============================================================== -->
+                <!-- .row -->
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="white-box analytics-info">
+                            <h3 class="box-title">Total Visitors</h3>
+                            <br>
+                            <div class="row">
+                                <div class="col-md-6 col-sm-12">
+                                    <div class="form-group inline-block">
+                                        <label>Start Date</label>
+                                        <input type="date" name="date1" class="form-control">
+                                       </div>
+                                </div>
+                                <div class="col-md-6 col-sm-12">
+                                    <div class="form-group">
+                                        <label >End Date</label>
+                                        <input type="date" name="date2" class="form-control">
+                                       </div>
+                                </div>
+                            <ul class="list-inline two-part">
+                                <li>
+                                    <div id="chart_div"></div>
+                                </li>
+                                <li class="text-right"><i class="ti-arrow-up text-info"></i> <span class="counter text-success" style="font-size: 60px;">659</span><div style="font-size: 17px;">Present Day <br> Total Visitors</div></li>
+                            </ul>
+                            <ul class="list-inline">
+                                <li>
+                                    <a href="#" class="btn pull-right waves-effect waves-light" style="border:2px solid rgb(50, 50, 95);color: rgb(50, 50, 95);margin-left: 780px;" >Download Details
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <!--/.row -->
+                <!--row -->
+                <!-- /.row -->
+            </div>
+
+{% endblock %}

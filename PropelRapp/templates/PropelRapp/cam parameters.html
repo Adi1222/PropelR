@@ -1,0 +1,117 @@
+{% extends 'PropelRapp/base.html' %}
+
+{% block title %}Camera Parameters{% endblock %}
+
+{% block content %}
+
+    <div class="container-fluid">
+        <br>
+        <!-- /.row -->
+        <!-- ============================================================== -->
+        <!-- Different data widgets -->
+        <!-- ============================================================== -->
+        <!-- .row -->
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="white-box analytics-info">
+                <div class="login-page">
+                    <div class="banner">
+                         <h2 class="head">Camera Parameters</h2>
+                    </div>
+                    <form action="" method="POST">
+                <div class="form-group">
+                    <label style="font-size: 17px; padding-bottom: 20px;">Slicing Co-ordinates</label>
+
+                    <div class="row">
+                      <div class="form-group col-md-6 col-sm-6">
+                          <label for="ip" class="lables">X1</label>
+                          <input type="number" name="user" class="form-control" required>
+                      </div>
+
+                      <div class="form-group col-md-6 col-sm-6">
+                        <label for="cam" class="lables">Y1</label>
+                          <input type="number" name="user" class="form-control" required>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="form-group col-md-6 col-sm-6">
+                          <label for="cam" class="lables">X2</label>
+                            <input type="number" name="user" class="form-control" required>
+                        </div>
+                        <div class="form-group col-md-6 col-sm-6">
+                            <label for="cam" class="lables">Y2</label>
+                              <input type="number" name="user" class="form-control" required>
+                          </div>
+                    </div>
+                  </div>
+                <div class="form-group">
+                  <label style="font-size: 17px; padding-bottom: 20px;">Tampering Parameters</label>
+                  <div class="row">
+                    <div class="form-group col-sm-4">
+                        <label for="ip" class="lables">Lower Threshod</label>
+                        <input type="number" name="user" value="0" class="form-control"required>
+                    </div>
+
+                    <div class="form-group col-sm-4">
+                      <label for="cam" class="lables">Mid Threshod</label>
+                        <input type="number" value="100" name="user" class="form-control" required>
+                    </div>
+                    <div class="form-group col-sm-4">
+                        <label for="cam" class="lables">Upper Threshod</label>
+                          <input type="number" value="255" name="user" class="form-control" required>
+                      </div>
+                  </div>
+                </div>
+                <div class="form-group">
+                    <label style="font-size: 17px; padding-bottom: 20px;">Hinderence Parameters</label>
+                    <div class="row">
+                      <div class="form-group col-sm-6">
+                          <label for="ip" class="lables">Lower Threshod</label>
+                          <input type="number" name="user" value="50" class="form-control"required>
+                      </div>
+
+                      <div class="form-group col-sm-6">
+                        <label for="cam" class="lables">Upper Threshod</label>
+                          <input type="number" value="255" name="user" class="form-control"required>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label style="font-size: 17px; padding-bottom: 20px;">Functionalities</label>
+                    <div class="row">
+                      <div class="form-group col-sm-6">
+                          <label for="sel1" class="lables">Purpose</label>
+                                <select class="form-control" id="perpose" name="options" required>
+                                      <option value="">--select--</option>
+                                      <option value="Supervisor">People</option>
+                                      <option value="Owner">Vehicle</option>
+                                </select>
+                      </div>
+
+                      <div class="form-group col-sm-6">
+                        <label for="sel1" class="lables">Features</label>
+                                <select class="form-control" id="perpose" name="options" required>
+                                      <option value="">--select--</option>
+                                      <option value="Supervisor">Age</option>
+                                      <option value="Owner">Gender</option>
+                                      <option value="Owner">Emotion</option>
+                                      <option value="Owner">People Count</option>
+                                      <option value="Owner">Vehicle Count</option>
+                                      <option value="Owner">Unique People Count</option>
+                                      <option value="Owner">Unique People Count</option>
+                                </select>
+                      </div>
+                    </div>
+                  </div>
+                <button type="submit" class="btn">Submit</button>
+            </form>
+                </div>
+            </div>
+            </div>
+        </div>
+        <!--/.row -->
+        <!--row -->
+        <!-- /.row -->
+    </div>
+
+{% end block %}

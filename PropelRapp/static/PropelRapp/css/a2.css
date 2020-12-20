@@ -1,0 +1,47 @@
+{% load static %}
+
+body{
+    background: linear-gradient(rgba(0, 0, 39, 0.5),rgba(0,0,50,0.5)), url("{% static 'PropelRapp/login/img11.jpg' %}");
+    background-size: cover;
+    background-position: center;
+}
+.head{
+    font-size: 25px;
+    font-weight: 600;
+    text-align: center;
+}
+.login-page{
+    max-width: 400px;
+    float: none;
+    margin: 180px auto;
+    padding: 50px;
+    border-radius: 3px;
+    background: rgba(211, 211, 211, 0.5);
+
+
+}
+@media (max-width: 767px){
+    .login-page{
+        padding: 15px;
+    }
+}
+.btn{
+    margin-left: 100px;
+}
+.login1{
+    background: rgba(211, 211, 211, 0.5);
+    padding: 30px;
+}
+.login2{
+    background: #fff;
+    padding: 30px;
+}
+.pass{
+    font-size: 15px;
+    text-align: center;
+    margin-left: 88px;
+    color: white;
+}
+ .form-control{
+    margin-top: 30px;
+} 

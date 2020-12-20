@@ -1,0 +1,161 @@
+
+                                            <!--
+
+                                    <div class="form-group">
+                                      <label for="sel1" class="lables">Dashboard</label>
+                                      <br>
+                                      <div class="row">
+                                        <div class="col-md-2">
+                                          <label>
+                                            <input type="checkbox" class="checkbox"> Total Visitors
+                                          </label>
+                                        </div>
+                                        <div class="col-md-2">
+                                          <label>
+                                            <input type="checkbox" class="checkbox" value=""> Age Gender count
+                                          </label>
+                                        </div>
+                                        <div class="col-md-2">
+                                            <label>
+                                              <input type="checkbox" class="checkbox" value="">Vehicle Count
+                                            </label>
+                                          </div>
+                                          <div class="col-md-2">
+                                            <label>
+                                              <input type="checkbox" class="checkbox" value="">Repeat Visitors Count
+                                            </label>
+                                          </div>
+                                          <div class="col-md-2">
+                                            <label>
+                                              <input type="checkbox" class="checkbox" value="">Camera Tampering Count
+                                            </label>
+                                          </div>
+                                          <div class="col-md-2">
+                                            <label>
+                                              <input type="checkbox" class="checkbox" value="">Repeat Vehicle Count
+                                            </label>
+                                          </div>
+                                      </div>
+                                    </div>
+
+
+
+                                   <div class="form-group">
+                                        <label for="sel2" class="lables">Report</label>
+                                        <br>
+                                        <div class="row">
+                                          <div class="col-md-2">
+                                            <label>
+                                              <input type="checkbox" class="checkbox"> Total Visitors
+                                            </label>
+                                          </div>
+                                          <div class="col-md-2">
+                                            <label>
+                                              <input type="checkbox" class="checkbox" value=""> Age Gender count
+                                            </label>
+                                          </div>
+                                          <div class="col-md-2">
+                                              <label>
+                                                <input type="checkbox" class="checkbox" value="">Vehicle Count
+                                              </label>
+                                            </div>
+                                            <div class="col-md-2">
+                                              <label>
+                                                <input type="checkbox" class="checkbox" value="">Repeat Visitors Count
+                                              </label>
+                                            </div>
+                                            <div class="col-md-2">
+                                              <label>
+                                                <input type="checkbox" class="checkbox" value="">Camera Tampering Count
+                                              </label>
+                                            </div>
+                                            <div class="col-md-12">
+                                              <label>
+                                                <input type="checkbox" class="checkbox" value="">Repeat Vehicle Count
+                                              </label>
+                                            </div>
+                                        </div>
+                                      </div>
+                                        -->
+
+{% extends 'PropelRapp/base.html' %}
+
+{% block title %}Feed{% endblock %}
+
+{% block content %}
+<script>
+    var video = document.getElementById('video');
+
+// Get access to the camera!
+if(navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
+    // Not adding `{ audio: true }` since we only want video now
+    navigator.mediaDevices.getUserMedia({ video: true }).then(function(stream) {
+        //video.src = window.URL.createObjectURL(stream);
+        video.srcObject = stream;
+        video.play();
+    });
+}
+</script>
+
+
+
+
+
+
+            <video id="video" width="640" height="480" autoplay></video>
+            <button id="snap">Snap Photo</button>
+            <canvas id="canvas" width="640" height="480"></canvas>
+
+
+{% endblock %}
+
+
+
+
+
+
+
+
+                                                                <div class="table-responsive" id="table" hidden>
+                        <table class="table table-bordered" role="grid">
+                            <thead>
+                                <tr>
+                                    <th>Date</th>
+                                    <th>Visitors Count</th>
+                                    <th>Entry Date</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>12/2/2020</td>
+                                    <td>93</td>
+                                    <td>12/2/2020</td>
+                                </tr>
+                                <tr>
+                                    <td>12/2/2020</td>
+                                    <td>93</td>
+                                    <td>12/2/2020</td>
+                                </tr>
+                                <tr>
+                                    <td>12/2/2020</td>
+                                    <td>93</td>
+                                    <td>12/2/2020</td>
+                                </tr>
+                                <tr>
+                                    <td>12/2/2020</td>
+                                    <td>93</td>
+                                    <td>12/2/2020</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+
+                    <div class="container">
+                        <ul class="pagination pagination-sm justify-content-end">
+                            <li class="page-item"><a class="page-link" href="javascript:void(0);">Previous</a></li>
+                            <li class="page-item"><a class="page-link" href="javascript:void(0);">1</a></li>
+                            <li class="page-item"><a class="page-link" href="javascript:void(0);">2</a></li>
+                            <li class="page-item"><a class="page-link" href="javascript:void(0);">Next</a></li>
+                        </ul>
+                    </div>

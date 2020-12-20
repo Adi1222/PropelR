@@ -1,0 +1,91 @@
+{% extends 'PropelRapp/base.html' %}
+
+{% block title %}Camera{% endblock %}
+
+{% block content %}
+
+
+    <div class="container-fluid">
+        <br>
+        <!-- /.row -->
+        <!-- ============================================================== -->
+        <!-- Different data widgets -->
+        <!-- ============================================================== -->
+        <!-- .row -->
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="white-box analytics-info">
+                    <div class="login-page">
+                        <div class="banner">
+                             <h2 class="head">Camera</h2>
+                        </div>
+                        <form action="{% url 'PropelRapp:add_camera' %}" method="POST">
+                            {% csrf_token %}
+                          <div class="row">
+                            <div class="form-group col-sm-6">
+                                <label for="ip" class="lables">IP Address</label>
+                                <input type="text" name="camip" class="form-control" placeholder="IP Address" required>
+                            </div>
+
+                            <div class="form-group col-sm-6">
+                              <label for="cam" class="lables">Camera Name</label>
+                                <input type="text" name="camname" class="form-control" placeholder="Name" required>
+                            </div>
+                          </div>
+
+
+                            <div class="form-group">
+                              <label for="sel1" class="lables">Algorithm</label>
+                                <select class="form-control" id="algo" name="algo">
+                                      <option>--select--</option>
+                                      <option>Vehicle</option>
+                                      <option>People</option>
+                                </select>
+                            </div>
+
+
+                            <div class="row">
+                                  <div class="form-group col-sm-6">
+                                        <label for="ip" class="lables">x1 Co-ordinate</label>
+                                        <input type="text" name="x1" class="form-control" placeholder="x1 Co-ordinate" required>
+                                  </div>
+                                  <div class="form-group col-sm-6">
+                                        <label for="ip" class="lables">y1 Co-ordinate</label>
+                                        <input type="text" name="y1" class="form-control" placeholder="y1 Co-ordinate" required>
+                                  </div>
+                            </div>
+
+
+                            <div class="row">
+                                  <div class="form-group col-sm-6">
+                                        <label for="ip" class="lables">x1 Co-ordinate</label>
+                                        <input type="text" name="x2" class="form-control" placeholder="x2 Co-ordinate" required>
+                                  </div>
+                                  <div class="form-group col-sm-6">
+                                        <label for="ip" class="lables">y1 Co-ordinate</label>
+                                        <input type="text" name="y2" class="form-control" placeholder="y2 Co-ordinate" required>
+                                  </div>
+                            </div>
+
+
+                            <div class="form-group">
+                              <label for="sel1" class="lables">Choose Cluster</label>
+                                <select class="form-control" id="clust" name="clust">
+                                      <option selected>--select--</option>
+                                            {% for cluster in clusters %}
+                                                <option>{{cluster.cluster_name}}</option>
+                                            {% endfor %}
+                                </select>
+                            </div>
+
+
+                            <button type="submit" class="btn">Submit</button>
+                        </form>
+                  </div>
+            </div>
+            </div>
+        </div>
+    </div>
+
+
+{% endblock %}

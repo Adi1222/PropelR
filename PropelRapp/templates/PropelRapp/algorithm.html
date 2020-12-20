@@ -1,0 +1,25 @@
+{% extends 'PropelRapp/base.html' %}
+
+{% block title %}Algorithms{% endblock %}
+
+{% block content %}
+
+<div class="container">
+            <div class="login-page">
+                    <div class="banner">
+                         <h2 class="head">Algorithm</h2>
+                    </div>
+                    <form action="{% url 'PropelRapp:add_algo' %}" method="POST">
+                        {% csrf_token %}
+                        <div class="form-group">
+                            <input type="text" name="algo_name" class="form-control" placeholder="Algorithm Name" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" name="descr" class="form-control" placeholder="Description" required>
+                        </div>
+                        <button type="submit" class="btn">Submit</button>
+                    </form>
+            </div>
+</div>
+
+{% endblock %}

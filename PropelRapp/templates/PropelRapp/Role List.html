@@ -1,0 +1,83 @@
+{% extends 'PropelRapp/base.html' %}
+
+{% block title %}Roles{% endblock %}
+
+{% block content %}
+
+
+         <div class="container-fluid">
+                <div class="row bg-title">
+                    <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
+                        <h4 class="page-title">Admin</h4> </div>
+                    <!-- /.col-lg-12 -->
+                </div>
+                <!-- /.row -->
+                <!-- ============================================================== -->
+                <!-- Different data widgets -->
+                <!-- ============================================================== -->
+                <!-- .row -->
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="white-box">
+                            <a href="{% url 'PropelRapp:add_role' %}" class="btn pull-right waves-effect waves-light" style="background-color: rgb(50, 50, 95);color: white;" >Add Role
+                            </a>
+                            <h3 class="box-title">Details</h3>
+
+                            <div class="table-responsive">
+                                <table class="table table-bordered" role="grid">
+                                    <thead>
+                                        <tr>
+                                            <th>Role </th>
+                                            <th>Description</th>
+                                            <th>Action</th>
+                                        </tr>
+                                    </thead>
+                                     <tbody>
+                                        {% for role in roles %}
+                                            <tr>
+                                                <td>{{role.role}}</td>
+                                                <td>{{role.role_desc}}</td>
+                                                <td>
+                                                    <div class="btn-toolbar ">
+                                                    <a href="{% url 'PropelRapp:edit_role' role.id %}" class="btn btn-info"><i class="fa fa-pencil" style="font-size: 15px;color: white;float: right;"></i></a>
+                                                    <a href="{% url 'PropelRapp:delete_role' role.id %}" class="btn btn-info"><i class="fa fa-trash" style="font-size: 15px;color: white;float: right"></i></a>
+                                                    <!--<a href="{% url 'PropelRapp:role_details' role.id %}" class="btn btn-sm btn-info">Details <span class="glyphicon glyphicon-align-justify"></span></a>-->
+                                                </div>
+                                                </td>
+                                            </tr>
+                                        {% endfor %}
+                                    </tbody>
+                                </table>
+                            </div>
+
+                         {% if roles.has_other_pages %}
+                          <ul class="pagination">
+                            {% if roles.has_previous %}
+                              <li><a href="?page={{ roles.previous_page_number }}">&laquo;</a></li>
+                            {% else %}
+                              <li class="disabled"><span>&laquo;</span></li>
+                            {% endif %}
+                            {% for i in roles.paginator.page_range %}
+                              {% if roles.number == i %}
+                                <li class="active"><span>{{ i }} <span class="sr-only">(current)</span></span></li>
+                              {% else %}
+                                <li><a href="?page={{ i }}">{{ i }}</a></li>
+                              {% endif %}
+                            {% endfor %}
+                            {% if roles.has_next %}
+                              <li><a href="?page={{ roles.next_page_number }}">&raquo;</a></li>
+                            {% else %}
+                              <li class="disabled"><span>&raquo;</span></li>
+                            {% endif %}
+                          </ul>
+                        {% endif %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+        </div>
+
+
+
+
+{% endblock %}

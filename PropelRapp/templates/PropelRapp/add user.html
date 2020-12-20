@@ -1,0 +1,96 @@
+
+{% extends 'PropelRapp/base.html' %}
+
+{% block title %}Add User{% endblock %}
+
+{% block content %}
+
+    <div class="container-fluid">
+        <br>
+        <!-- /.row -->
+        <!-- ============================================================== -->
+        <!-- Different data widgets -->
+        <!-- ============================================================== -->
+        <!-- .row -->
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="white-box analytics-info">
+                <div class="login-page1">
+                             {% if messages %}
+                                <ul>
+                                    {% for message in messages %}
+                                        <div class="alert alert-danger">
+                                            {{ message }}
+                                        </div>
+                                    {% endfor %}
+                                </ul>
+                            {% endif %}
+
+
+
+
+
+
+                    <div class="banner">
+                         <h2 class="head">Add User</h2>
+                    </div>
+                    <form action="" method="POST">
+                        {% csrf_token %}
+
+                        {% if user.is_authenticated %}
+                            <div class="form-group">
+                                {{ user_form.as_p }}
+
+                                {% if request.user.is_superuser %}
+                                <div class="form-group">
+                                    {{ super_admin_user_form.as_p }}
+                                </div>
+                                {% else %}
+                                    {{ other_user_form.as_p }}
+                                {% endif %}
+
+                                {% if error %}
+                                      {% for e in error %}
+                                           <p style="color: red">{{ e }}</p>
+                                      {% endfor %}
+                                {% endif %}
+
+                            </div>
+                        {% endif %}
+
+                        <!--<div class="form-group mt-4">
+                            <label for="">Email ID</label>
+                            <input type="text" name="email" class="form-control" placeholder="Enter Email ID" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="">Username</label>
+                            <input type="text" name="username" class="form-control" placeholder="Enter Username" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="">Password</label>
+                            <input type="text" name="password" class="form-control" placeholder="Password" required>
+                        </div>
+                        <div class="form-group">
+                            <div class="form-group">
+                              <label for="sel1" class="lables">Role</label>
+                                <select class="form-control" id="perpose" name="role" required>
+                                      <option value="">--select--</option>
+                                            {% for role in roles %}
+                                                <option>{{role.role}}</option>
+                                            {% endfor %}
+                                </select>
+                            </div>
+                          </div>-->
+
+                        <button type="submit" class="btn">Register</button>
+                    </form>
+                </div>
+            </div>
+            </div>
+        </div>
+        <!--/.row -->
+        <!--row -->
+        <!-- /.row -->
+    </div>
+
+{% endblock %}

@@ -1,0 +1,91 @@
+{% extends 'PropelRapp/base.html' %}
+
+{% block title %}User Data {% endblock %}
+
+{% block content %}
+
+    <div class="container-fluid">
+        <div class="row bg-title">
+            <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
+                <h4 class="page-title">User List</h4> </div>
+            <!-- /.col-lg-12 -->
+        </div>
+        <!-- /.row -->
+        <!-- ============================================================== -->
+        <!-- Different data widgets -->
+        <!-- ============================================================== -->
+        <!-- .row -->
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="white-box">
+                    <a href="{% url 'PropelRapp:add_user' %}" class="btn pull-right waves-effect waves-light" style="background-color: rgb(50, 50, 95);color: white;" >Add User
+                    </a>
+                    <h3 class="box-title">Details</h3>
+
+                    <div class="table-responsive">
+                        <table class="table table-bordered">
+                            <thead>
+                                <tr>
+                                    <th>User Name</th>
+                                    <th>Role </th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>ABC@gmail.com</td>
+                                    <td>abc</td>
+                                    <td>xyz</td>
+                                    <td>
+                                        <button class="btn"><i class="fa fa-pencil"></i></button>
+                                        <button class="btn btn1"><i class="fa fa-trash"></i></button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>SSSZ@gmail.com</td>
+                                    <td>abc</td>
+                                    <td>xyz</td>
+                                    <td>
+                                        <button class="btn"><i class="fa fa-pencil"></i></button>
+                                        <button class="btn btn1"><i class="fa fa-trash"></i></button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>SDSHSS@gmail.com</td>
+                                    <td>abc</td>
+                                    <td>xyz</td>
+                                    <td>
+                                        <button class="btn"><i class="fa fa-pencil"></i></button>
+                                        <button class="btn btn1"><i class="fa fa-trash"></i></button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>SBSNS@gmail.com</td>
+                                    <td>abc</td>
+                                    <td>xyz</td>
+                                    <td>
+                                        <button class="btn"><i class="fa fa-pencil"></i></button>
+                                        <button class="btn btn1"><i class="fa fa-trash"></i></button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                        <ul class="pagination pagination-sm justify-content-end">
+                            <li class="page-item"><a class="page-link" href="javascript:void(0);">Previous</a></li>
+                            <li class="page-item"><a class="page-link" href="javascript:void(0);">1</a></li>
+                            <li class="page-item"><a class="page-link" href="javascript:void(0);">2</a></li>
+                            <li class="page-item"><a class="page-link" href="javascript:void(0);">Next</a></li>
+                        </ul>
+                     </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--/.row -->
+        <!--row -->
+        <!-- /.row -->
+    </div>
+
+
+{% endblock %}

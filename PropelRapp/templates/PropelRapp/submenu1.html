@@ -1,0 +1,32 @@
+{% extends 'PropelRapp/base.html' %}
+
+{% block title %}Sub Menu{% endblock %}
+
+{% block content %}
+
+
+    <div class="container-fluid">
+        <ul>
+        {% for submenu in all_items %}
+        <li>{{ submenu.submenu }}
+          <form action="{% url 'PropelRapp:delete_submenu1' submenu.id %}"
+                style="display: inline;"
+                method="post">
+        {% csrf_token %}
+              <button class="btn btn-info"  style="font-size: 15px;color: white;"><i class="fa fa-trash"></i></button>
+
+    </form>
+        </li>
+        {% endfor %}
+    </ul>
+
+    <form  action="{% url 'PropelRapp:add_submenu1' menu_inst.id %}" method="post">
+        {% csrf_token %}
+
+            <input type="text" name="submenu1"  placeholder="Menu" required>
+        <button type="submit"  class="btn btn-info"  style="font-size: 15px;color: white">Add</button>
+    </form>
+    </div>
+
+
+{% endblock %}

@@ -1,0 +1,55 @@
+{% extends 'PropelRapp/base.html' %}
+
+{% block title %}Sub Menu{% endblock %}
+
+{% block content %}
+
+
+    <div class="container-fluid">
+        <br>
+        <!-- /.row -->
+        <!-- ============================================================== -->
+        <!-- Different data widgets -->
+        <!-- ============================================================== -->
+        <!-- .row -->
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="white-box analytics-info">
+                    <div class="login-page">
+                        <div class="banner">
+                             <h2 class="head">Sub menu</h2>
+                        </div>
+                        <form action="{% url 'PropelRapp:add_submenu' %}" method="POST">
+                            {% csrf_token %}
+                          <div class="row">
+                            <div class="form-group col-sm-12">
+                                <label for="ip" class="lables">Submenu</label>
+                                <input type="text" name="submenu" class="form-control" placeholder="Submenu" required>
+                            </div>
+                          </div>
+
+
+
+
+                            <div class="form-group">
+                              <label for="sel1" class="lables">Choose Menu</label>
+                                <select class="form-control" id="menu" name="menu">
+                                      <option selected>--select--</option>
+                                            {% for menu in menus %}
+                                                <option>{{menu.menu}}</option>
+                                            {% endfor %}
+                                </select>
+                            </div>
+
+
+
+                            <button type="submit" class="btn">Submit</button>
+                        </form>
+                  </div>
+            </div>
+            </div>
+        </div>
+    </div>
+
+
+{% endblock %}

@@ -1,0 +1,57 @@
+body{
+    background: linear-gradient(rgba(0,0,50,0.5),rgba(0,0,50,0.5)), url(img11.jpg);
+    background-size: cover;
+    background-position: center;
+    /* background-attachment:fixed; */
+
+}
+.head{
+    text-align: center;
+    font-size: 25px;
+    font-weight: 600;
+    color:rgb(43, 43, 92);
+}
+.text{
+    font-size: 20px;
+
+}
+.login-page{
+    max-width: 450px;
+    float: none;
+    margin: 150px auto;
+    padding: 150px auto;
+}
+@media (max-width: 767px){
+    body{
+    background: linear-gradient(rgba(0,0,50,0.5),rgba(0,0,50,0.5)), url(img11.jpg);
+    background-size: cover;
+    background-position: center;
+    background-attachment:fixed;
+    }
+}
+.login1{
+    background: rgba(250, 248, 248, 0.5);
+    padding: 30px;
+}
+.login2{
+    background: #fff;
+    padding: 30px;
+}
+.btn{
+    margin-top: 10px;
+    margin-left: 130px;
+    padding:10px 30px;
+    color: white;
+    background-color:rgb(43, 43, 92) ;
+}
+.form-control{
+    margin-top: 30px;
+    background-color: rgb(231, 227, 227);
+    /* margin: 30px 10px; */
+} 
+.pass{
+    font-size: 17px;
+    text-align: center;
+    margin-left: 125px;
+    color: rgb(43, 43, 92);
+}

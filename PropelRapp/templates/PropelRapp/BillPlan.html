@@ -1,0 +1,51 @@
+{% extends 'PropelRapp/base.html' %}
+
+    {% block title %}BillPlan{% endblock %}
+
+
+{% block content %}
+    <div class="container-fluid">
+        <br>
+        <!-- /.row -->
+        <!-- ============================================================== -->
+        <!-- Different data widgets -->
+        <!-- ============================================================== -->
+        <!-- .row -->
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="white-box analytics-info">
+                    <div class="login-page">
+                        <div class="banner">
+                             <h2 class="head">Bill Plan</h2>
+                        </div>
+                        <form action="{% url 'PropelRapp:add_bill' %}" method="POST">
+                            {% csrf_token %}
+
+
+                          <div class="row">
+                            <div class="form-group col-sm-12">
+                                <label for="ip" class="lables">Bill Plan</label>
+                                <input type="text" name="billplan" class="form-control" placeholder="Bill Plan" required>
+                            </div>
+                          </div>
+
+                            <div class="row">
+                            <div class="form-group col-sm-12">
+                              <label for="cam" class="lables">Bill Plan Description</label>
+                                <div id="test">
+                                <input type="text" name="billplan_cd" class="form-control" placeholder="Description" onclick="test()" required>
+                                </div>
+                            </div>
+                          </div>
+
+
+                            <button type="submit" class="btn">Submit</button>
+                        </form>
+                  </div>
+            </div>
+            </div>
+        </div>
+    </div>
+
+
+{% endblock %}

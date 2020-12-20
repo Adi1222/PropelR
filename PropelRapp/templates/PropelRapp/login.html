@@ -1,0 +1,225 @@
+
+{% load static %}
+
+<html>
+    <head>
+        <title>login</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+        <link rel="stylesheet" href="a2.css">
+
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <!--<link rel="icon" type="image/png" sizes="16x16" href="../plugins/images/favicon.png">-->
+    <title>{% block title %}Login{% endblock %}</title>
+
+    <link rel="icon" href="https://cookieless.MySite.com/favicon.ico" type="image/x-icon" />
+
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <!--<link href="bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">-->
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+
+
+    <!-- Menu CSS -->
+    <link href="{% static 'PropelRapp/plugins/bower_components/sidebar-nav/dist/sidebar-nav.min.css' %}" rel="stylesheet">
+    <!-- toast CSS -->
+    <link href="{% static 'PropelRapp/plugins/bower_components/toast-master/css/jquery.toast.css' %}" rel="stylesheet">
+    <!-- morris CSS -->
+    <link href="{% static 'PropelRapp/plugins/bower_components/morrisjs/morris.css' %}" rel="stylesheet">
+    <!-- chartist CSS -->
+    <link href="{% static 'PropelRapp/plugins/bower_components/chartist-js/dist/chartist.min.css' %}" rel="stylesheet">
+    <link href="{% static 'PropelRapp/plugins/bower_components/chartist-plugin-tooltip-master/dist/chartist-plugin-tooltip.css' %}" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+    <!-- animation CSS -->
+    <link href="{% static 'PropelRapp/css/animate.css' %}" rel="stylesheet" type='text/css'>
+    <!-- Custom CSS -->
+    <link href="{% static 'PropelRapp/css/style.css' %}" rel="stylesheet" type='text/css'>
+    <!-- color CSS -->
+    <link href="{% static 'PropelRapp/css/colors/default.css' %}" id="theme" rel="stylesheet" type='text/css'>
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]-->
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+
+
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script src="{% static 'PropelRapp/plugins/bower_components/jquery/dist/jquery.min.js' %}"></script>
+    <!-- Bootstrap Core JavaScript -->
+    <script src="{% static 'PropelRapp/bootstrap/dist/js/bootstrap.min.js' %}"></script>
+    <!-- Menu Plugin JavaScript -->
+    <script src="{% static 'PropelRapp/plugins/bower_components/sidebar-nav/dist/sidebar-nav.min.js' %}"></script>
+    <!--slimscroll JavaScript -->
+    <script src="{% static 'PropelRapp/js/jquery.slimscroll.js' %}"></script>
+    <!--Wave Effects -->
+    <script src="{% static 'PropelRapp/js/waves.js' %}"></script>
+    <!--Counter js -->
+    <script src="{% static 'PropelRapp/plugins/bower_components/waypoints/lib/jquery.waypoints.js' %}"></script>
+    <script src="{% static 'PropelRapp/plugins/bower_components/counterup/jquery.counterup.min.js' %}"></script>
+    <!-- chartist chart -->
+    <script src="{% static 'PropelRapp/plugins/bower_components/chartist-js/dist/chartist.min.js' %}"></script>
+    <script src="{% static 'PropelRapp/plugins/bower_components/chartist-plugin-tooltip-master/dist/chartist-plugin-tooltip.min.js' %}"></script>
+    <!-- Sparkline chart JavaScript -->
+    <script src="{% static 'PropelRapp/plugins/bower_components/jquery-sparkline/jquery.sparkline.min.js' %}"></script>
+    <!-- Custom Theme JavaScript -->
+    <script src="{% static 'PropelRapp/js/custom.min.js' %}"></script>
+    <script src="{% static 'PropelRapp/js/dashboard1.js' %}"></script>
+    <script src="{% static 'PropelRapp/chart js/vehicle.js' %}"></script>
+    <script src="{% static 'PropelRapp/plugins/bower_components/toast-master/js/jquery.toast.js' %}"></script>
+
+<![endif]-->
+<style>
+    .head{
+            font-size: 25px;
+            font-weight: 200;
+            text-align: center;
+            color: white;
+
+        }
+        .login-page{
+            max-width: 400px;
+            float: none;
+            margin: 5px auto;
+            padding: 50px;
+            border-radius: 3px;
+            background-image: linear-gradient(40deg, #c8cfdf 0%, #f8faf9 100%);
+        }
+        .banner {
+            margin-bottom: 20px;
+            position: relative;
+            height: 80px;
+            background-color:rgb(67, 95, 146);
+            border-radius: 4px;
+            background-size: cover;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            }
+            .banner::after {
+            content: "";
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            }
+        @media (max-width: 767px){
+            .login-page{
+                padding: 15px;
+            }
+        }
+        .btn{
+            margin-top: 20px;
+            margin-left: 90px;
+            padding-left: 25px;
+            padding-right: 25px;
+            background-color:rgb(67, 95, 146);
+            color:white;
+            border-radius: 3px solid rgb(103, 175, 216);
+        }
+        .btn:hover{
+            background-color:rgb(45, 54, 73);
+            color: white;
+        }
+        .form-control{
+            /* margin-top: 30px; */
+            border-radius: 4px;
+            background-color: white;
+        }
+</style>
+
+    </head>
+   <body class="fix-header">
+    <!-- ============================================================== -->
+    <!-- Preloader -->
+    <!-- ============================================================== -->
+
+    <!-- ============================================================== -->
+    <!-- Wrapper -->
+    <!-- ============================================================== -->
+    <div id="wrapper">
+        <!-- ============================================================== -->
+        <!-- Topbar header - style you can find in pages.scss -->
+        <!-- ============================================================== -->
+        <nav class="navbar navbar-default navbar-static-top m-b-0">
+            <div class="navbar-header">
+                <div class="top-left-part" style="background-color: #2f323e;">
+                    <span class="hidden-xs">
+                    <a><img src="{% static 'PropelRapp/plugins/images/logo1.png' %}" alt="home"
+                        class="light-logo" style="width:180px;margin-left: 5px;" /></a>
+                    </span>
+                </div>
+                <!-- /Logo -->
+                <ul class="nav navbar-top-links navbar-right pull-right">
+                    <li>
+                        <a class="nav-toggler open-close waves-effect waves-light hidden-md hidden-lg" href="javascript:void(0)"><i class="fa fa-bars"></i></a>
+                    </li>
+
+                </ul>
+                </ul>
+            </div>
+            <!-- /.navbar-header -->
+            <!-- /.navbar-top-links -->
+            <!-- /.navbar-static-side -->
+        </nav>
+        <!-- End Top Navigation -->
+        <!-- ============================================================== -->
+        <!-- Left Sidebar - style you can find in sidebar.scss  -->
+        <!-- ============================================================== -->
+        <div class="navbar-default sidebar" role="navigation" style="background-color: #2f323e;">
+            <div class="sidebar-nav slimscrollsidebar">
+                <div class="sidebar-head">
+                    <span class="fa-fw open-close"><i class="ti-close ti-menu"></i></span> <span class="hide-menu"><img src="{% static 'PropelRapp/plugins/images/sty.jpeg' %}" alt="home"
+                        class="light-logo" style="width: 130px; margin-top: 4px;text-align: left;margin-right: 9px;" /></span>
+                </div>
+            </div>
+
+        </div>
+        <!-- ============================================================== -->
+        <!-- End Left Sidebar -->
+        <!-- ============================================================== -->
+        <!-- ============================================================== -->
+        <!-- Page Content -->
+        <!-- ============================================================== -->
+        <div id="page-wrapper">
+
+             <div class="container">
+            <div class="login-page">
+            <!-- <div class="row">
+                <div class="col-md-6 login1"> -->
+                    <h2 class="head" style="color:black">login to your account</h2>
+                    <form action="" method="POST">
+                         {% csrf_token %}
+                        <div class="form-group">
+                            <input type="text" name="username" class="form-control" placeholder="Username" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="password" name="password" class="form-control" placeholder="Password" required>
+                        </div>
+                        <button type="submit" class="btn btn-primary" name="submit" value="login">Login</button>
+                    </form>
+                    <form action="{% url 'PropelRapp:register' %}" method="">
+                        {% csrf_token %}
+                        <button type="submit" class="btn btn-primary" name="submit" value="register">Register</button>
+                    </form>
+                    <a href="#" class="pass">Forgot password?</a>
+
+    </div>
+
+
+            <footer class="footer text-center">Copyright &copy; 2020.&nbsp;&nbsp;&nbsp;All rights reserved By Shyena Tech Yarns</footer>
+
+        </div>
+        <!-- ============================================================== -->
+        <!-- End Page Content -->
+        <!-- ============================================================== -->
+    </div>
+    </div>
+    </body>
+</html>

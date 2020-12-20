@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" type="image/png" sizes="16x16" href="../plugins/images/favicon.png">
+    <title>Admin Template</title>
+    <!-- Bootstrap Core CSS -->
+    <link href="bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Menu CSS -->
+    <link href="../plugins/bower_components/sidebar-nav/dist/sidebar-nav.min.css" rel="stylesheet">
+    <!-- toast CSS -->
+    <link href="../plugins/bower_components/toast-master/css/jquery.toast.css" rel="stylesheet">
+    <!-- morris CSS -->
+    <link href="../plugins/bower_components/morrisjs/morris.css" rel="stylesheet">
+    <!-- chartist CSS -->
+    <link href="../plugins/bower_components/chartist-js/dist/chartist.min.css" rel="stylesheet">
+    <link href="../plugins/bower_components/chartist-plugin-tooltip-master/dist/chartist-plugin-tooltip.css" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+    <!-- animation CSS -->
+    <link href="css/animate.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link href="css/style.css" rel="stylesheet">
+    <!-- color CSS -->
+    <link href="css/colors/default.css" id="theme" rel="stylesheet">
+    
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+<![endif]-->
+<style>
+    .head{
+            font-size: 25px;
+            font-weight: 200;  
+            text-align: center;
+            color: white;
+            
+        }
+        .login-page{
+            max-width: 600px;
+            float: none;
+            margin: 5px auto; 
+            padding: 50px;
+            border-radius: 3px;
+            background-image: linear-gradient(40deg, #c8cfdf 0%, #f8faf9 100%);
+        }
+        .banner {
+            margin-bottom: 20px;
+            position: relative;
+            height: 80px;  
+            background-color:rgb(67, 95, 146);
+            border-radius: 4px;
+            background-size: cover;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            }
+            .banner::after {
+            content: "";
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            }
+        @media (max-width: 767px){
+            .login-page{
+                padding: 15px;
+            }
+        }
+        .btn{
+            margin-top: 20px;
+            margin-left: 90px;
+            padding-left: 25px;
+            padding-right: 25px;
+            background-color:rgb(67, 95, 146);
+            color:white;
+            border-radius: 3px solid rgb(103, 175, 216);
+        }
+        .btn:hover{
+            background-color:rgb(45, 54, 73);
+            color: white;
+        }
+        .form-control{
+            /* margin-top: 30px; */
+            border-radius: 4px;
+            background-color: white;
+        }
+</style>
+</head>
+
+<body class="fix-header">
+    <!-- ============================================================== -->
+    <!-- Preloader -->
+    <!-- ============================================================== -->
+    <div class="preloader">
+        <svg class="circular" viewBox="25 25 50 50">
+            <circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="2" stroke-miterlimit="10" />
+        </svg>
+    </div>
+    <!-- ============================================================== -->
+    <!-- Wrapper -->
+    <!-- ============================================================== -->
+    <div id="wrapper">
+        <!-- ============================================================== -->
+        <!-- Topbar header - style you can find in pages.scss -->
+        <!-- ============================================================== -->
+        <nav class="navbar navbar-default navbar-static-top m-b-0">
+            <div class="navbar-header">
+                <div class="top-left-part" style="background-color: #2f323e;">
+                    <span class="hidden-xs">
+                    <a><img src="../plugins/images/logo1.png" alt="home"
+                        class="light-logo" style="width:180px;margin-left: 5px;" /></a>
+                    </span>    
+                </div>
+                <!-- /Logo -->
+                <ul class="nav navbar-top-links navbar-right pull-right">
+                    <li>
+                        <a class="nav-toggler open-close waves-effect waves-light hidden-md hidden-lg" href="javascript:void(0)"><i class="fa fa-bars"></i></a>
+                    </li>
+                    <li>
+                        <form role="search" class="app-search hidden-sm hidden-xs m-r-10">
+                            <input type="text" placeholder="Search..." class="form-control"> 
+                            <a href="">
+                                <i class="fa fa-search"></i>
+                            </a> 
+                        </form>
+                    </li>
+                    <li class="dropdown">
+                        <a class="profile-pic nav-link dropdown-toggle" data-toggle="dropdown" href="#"><img src="../plugins/images/users/varun.jpg" alt="user-img" width="36" class="img-circle"><b class="hidden-xs">ABC </b><i class="fa fa-caret-down" style="float: right;margin-top: 22px;margin-left: 6px;"></i></a>
+                        <div class="dropdown-menu dropdown-menu-right user-dd animated flipInY" style="height: 150px; width: 200px;">
+                            <div style="margin: 15px;font-size: 18px;color:#2f323e;"><a  href="main-Profile.html" class="dropdown-item">
+                                <i class="fa fa-user fa-fw" aria-hidden="true"></i> My Profile</a></div>
+                        <div style="margin-bottom: 15px;font-size: 18px;margin-left: 15px;color:#2f323e;"><a href="change passward.html" class="dropdown-item">
+                            <i class="fa fa-cog fa-fw" aria-hidden="true"></i>  Account Setting</a></div>
+                        <div style="margin-bottom: 15px;font-size: 18px;margin-left: 15px;color:#2f323e;"><a class="dropdown-item" href="javascript:void(0)">
+                            <i class="fa fa-power-off fa-fw" aria-hidden="true"></i> Logout</a></div>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-header -->
+            <!-- /.navbar-top-links -->
+            <!-- /.navbar-static-side -->
+        </nav>
+        <!-- End Top Navigation -->
+        <!-- ============================================================== -->
+        <!-- Left Sidebar - style you can find in sidebar.scss  -->
+        <!-- ============================================================== -->
+        <div class="navbar-default sidebar" role="navigation" style="background-color: #2f323e;">
+            <div class="sidebar-nav slimscrollsidebar">
+                <div class="sidebar-head">
+                    <span class="fa-fw open-close"><i class="ti-close ti-menu"></i></span> <span class="hide-menu"><img src="../plugins/images/sty.jpeg" alt="home"
+                        class="light-logo" style="width: 130px; margin-top: 4px;text-align: left;margin-right: 9px;" /></span>
+                </div>
+                <ul class="nav" id="side-menu">
+                    <li style="padding: 70px 0 0;">
+                        <a href="main dashboard.html" class="waves-effect" style="color: #fff;"><i class="fa fa-clock-o fa-fw" aria-hidden="true"></i>Dashboard</a>
+                    </li>
+                    <li>
+                        <a href="userdata.html" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle" style="color: #fff;"><i class="fa fa-user fa-fw" aria-hidden="true"></i>Profile</a>
+                    </li>
+                    <li>
+                        <a href="Submenu1" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle" class="waves-effect" style="color: #fff;"><i class="fa fa-table fa-fw" aria-hidden="true"></i>Report<i class="fa fa-caret-down" style="float: right;margin-top: 4px;"></i></a>
+                        <ul class="collapse list-unstyled" id="Submenu1">
+                            <li>
+                                <a href="report visitors.html" style="padding-left: 50px;color: #fff;">Visitors Count</a>
+                            </li>
+                            <li>
+                                <a href="report age.html" style="padding-left: 50px;color: #fff;">Age-gender</a>
+                            </li>
+                            <li>
+                                <a href="report vehicle.html" style="padding-left: 50px;color: #fff;">Vehicle Count</a>
+                            </li>
+                            <li>
+                                <a href="report rvehicle.html" style="padding-left: 50px;color: #fff;">Repeat Vehicles Count</a>
+                            </li>
+                            <li>
+                                <a href="report rvisitors.html" style="padding-left: 50px;color: #fff;">Repeat Visitors</a>
+                            </li>
+                            <li>
+                                <a href="camera.html" style="padding-left: 50px;color: #fff;">Camera Tampering</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#Submenu" class="waves-effect" data-toggle="collapse" class="dropdown-toggle" style="color: #fff;"><i class="fa fa-font fa-fw" aria-hidden="true"></i>Admin<i class="fa fa-caret-down" style="float: right;margin-top: 4px;"></i></a>
+                        <ul class="collapse list-unstyled" id="Submenu">
+                            <li>
+                                <a href="userdata.html" style="padding-left: 50px;color: #fff;">User</a>
+                            </li>
+                            <li>
+                                <a href="roles.html" style="padding-left: 50px;color: #fff;">Authorization</a>
+                            </li>
+                            <li>
+                                <a href="roles.html" style="padding-left: 50px;color: #fff;">View Feed</a>
+                            </li>
+                            <li>
+                                <a href="#" style="padding-left: 50px;color: #fff;">Subcription</a>
+                            </li>
+                            <li>
+                                <a  href="#Submenu22" class="waves-effect" data-toggle="collapse" class="dropdown-toggle" style="color: #fff; margin-left: 50px;">Configuration</a>
+                                <ul class="collapse list-unstyled" id="Submenu22">
+                                    <li>
+                                        <a href="cluster table.html" style="padding-left: 50px;color: #fff; margin-left: 13px;">Cluster</a>
+                                    </li>
+                                    <li>
+                                        <a href="camera table.html" style="padding-left: 50px;color: #fff; margin-left: 13px;">Camera</a>
+                                    </li>
+                                    <li>
+                                        <a href="#" style="padding-left: 50px;color: #fff; margin-left: 13px;">Other Config Flags</a>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+                <!-- <div class="center p-20">
+                     <a href="https://wrappixel.com/templates/ampleadmin/" target="_blank" class="btn btn-danger btn-block waves-effect waves-light">Upgrade to Pro</a>
+                 </div> -->
+            </div>
+            
+        </div>
+        <!-- ============================================================== -->
+        <!-- End Left Sidebar -->
+        <!-- ============================================================== -->
+        <!-- ============================================================== -->
+        <!-- Page Content -->
+        <!-- ============================================================== -->
+        <div id="page-wrapper">
+            <div class="container-fluid">
+                <br>
+                <!-- /.row -->
+                <!-- ============================================================== -->
+                <!-- Different data widgets -->
+                <!-- ============================================================== -->
+                <!-- .row -->
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="white-box analytics-info">  
+                        <div class="login-page">
+                            <div class="banner">
+                                 <h2 class="head">Camera Parameters</h2>
+                            </div>
+                            <form action="" method="POST">
+                        <div class="form-group">
+                            <label style="font-size: 20px;">Slicing Co-ordinates</label>
+                            <div class="row">
+                              <div class="form-group col-md-6 col-sm-6">
+                                  <label for="ip" class="lables">X1</label>
+                                  <input type="number" name="user" class="form-control" required>
+                              </div>
+                              
+                              <div class="form-group col-md-6 col-sm-6">
+                                <label for="cam" class="lables">Y1</label>
+                                  <input type="number" name="user" class="form-control" required>
+                              </div>
+                            </div>
+                            <div class="row">  
+                              <div class="form-group col-md-6 col-sm-6">
+                                  <label for="cam" class="lables">X2</label>
+                                    <input type="number" name="user" class="form-control" required>
+                                </div>
+                                <div class="form-group col-md-6 col-sm-6">
+                                    <label for="cam" class="lables">Y2</label>
+                                      <input type="number" name="user" class="form-control" required>
+                                  </div>   
+                            </div>
+                          </div>
+                        <div class="form-group">
+                          <label style="font-size: 20px;">Tampering Parameters</label>
+                          <div class="row">
+                            <div class="form-group col-sm-4">
+                                <label for="ip" class="lables">Lower Threshod</label>
+                                <input type="number" name="user" value="0" class="form-control"required>
+                            </div>
+                            
+                            <div class="form-group col-sm-4">
+                              <label for="cam" class="lables">Mid Threshod</label>
+                                <input type="number" value="100" name="user" class="form-control" required>
+                            </div>
+                            <div class="form-group col-sm-4">
+                                <label for="cam" class="lables">Upper Threshod</label>
+                                  <input type="number" value="255" name="user" class="form-control" required>
+                              </div>  
+                          </div>
+                        </div>
+                        <div class="form-group">
+                            <label style="font-size: 20px;">Hinderence Parameters</label>
+                            <div class="row">
+                              <div class="form-group col-sm-6">
+                                  <label for="ip" class="lables">Lower Threshod</label>
+                                  <input type="number" name="user" value="50" class="form-control"required>
+                              </div>
+                              
+                              <div class="form-group col-sm-6">
+                                <label for="cam" class="lables">Upper Threshod</label>
+                                  <input type="number" value="255" name="user" class="form-control"required>
+                              </div>  
+                            </div>
+                          </div>
+                          <div class="form-group">
+                          	<label style="font-size: 20px;">Functionalities</label>
+                            <div class="row">
+                              <div class="form-group col-sm-6">
+                                  <label for="sel1" class="lables">Purpose</label>
+                                        <select class="form-control" id="perpose" name="options" required>
+                                              <option value="">--select--</option>
+                                              <option value="Supervisor">People</option>
+                                              <option value="Owner">Vehicle</option>
+                                        </select>
+                              </div>
+                              
+                              <div class="form-group col-sm-6">
+                                <label for="sel1" class="lables">Features</label>
+                                        <select class="form-control" id="perpose" name="options" required>
+                                              <option value="">--select--</option>
+                                              <option value="Supervisor">Age</option>
+                                              <option value="Owner">Gender</option>
+                                              <option value="Owner">Emotion</option>
+                                              <option value="Owner">People Count</option>
+                                              <option value="Owner">Vehicle Count</option>
+                                              <option value="Owner">Unique People Count</option>
+                                              <option value="Owner">Unique People Count</option>
+                                        </select>
+                              </div>  
+                            </div>
+                          </div>
+                        <button type="submit" class="btn">Submit</button>
+                    </form>
+                        </div>
+                    </div>       
+                    </div> 
+                </div>
+                <!--/.row -->
+                <!--row -->
+                <!-- /.row -->
+            </div>
+            <!-- /.container-fluid -->
+            <footer class="footer text-center">Copyright &copy; 2020.&nbsp;&nbsp;&nbsp;All rights reserved By Shyena Tech Yarns</footer>
+            
+        </div>
+        <!-- ============================================================== -->
+        <!-- End Page Content -->
+        <!-- ============================================================== -->
+    </div>
+    <!-- ============================================================== -->
+    <!-- End Wrapper -->
+    <!-- ============================================================== -->
+    <!-- ============================================================== -->
+    <!-- All Jquery -->
+    <!-- ============================================================== -->
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script src="../plugins/bower_components/jquery/dist/jquery.min.js"></script>
+    <!-- Bootstrap Core JavaScript -->
+    <script src="bootstrap/dist/js/bootstrap.min.js"></script>
+    <!-- Menu Plugin JavaScript -->
+    <script src="../plugins/bower_components/sidebar-nav/dist/sidebar-nav.min.js"></script>
+    <!--slimscroll JavaScript -->
+    <script src="js/jquery.slimscroll.js"></script>
+    <!--Wave Effects -->
+    <script src="js/waves.js"></script>
+    <!--Counter js -->
+    <script src="../plugins/bower_components/waypoints/lib/jquery.waypoints.js"></script>
+    <script src="../plugins/bower_components/counterup/jquery.counterup.min.js"></script>
+    <!-- chartist chart -->
+    <script src="../plugins/bower_components/chartist-js/dist/chartist.min.js"></script>
+    <script src="../plugins/bower_components/chartist-plugin-tooltip-master/dist/chartist-plugin-tooltip.min.js"></script>
+    <!-- Sparkline chart JavaScript -->
+    <script src="../plugins/bower_components/jquery-sparkline/jquery.sparkline.min.js"></script>
+    <!-- Custom Theme JavaScript -->
+    <script src="js/custom.min.js"></script>
+    <script src="js/dashboard1.js"></script>
+    <script src="chart js/vehicle.js"></script>
+    <script src="../plugins/bower_components/toast-master/js/jquery.toast.js"></script>
+</body>
+
+</html>

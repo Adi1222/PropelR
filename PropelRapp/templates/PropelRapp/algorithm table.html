@@ -1,0 +1,82 @@
+{% extends 'PropelRapp/base.html' %}
+
+{% block title %}Algorithms{% endblock %}
+
+{% block content %}
+
+
+         <div class="container-fluid">
+                <div class="row bg-title">
+                    <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
+                        <h4 class="page-title">Super Admin</h4> </div>
+                    <!-- /.col-lg-12 -->
+                </div>
+                <!-- /.row -->
+                <!-- ============================================================== -->
+                <!-- Different data widgets -->
+                <!-- ============================================================== -->
+                <!-- .row -->
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="white-box">
+                            <a href="{% url 'PropelRapp:add_algo' %}" class="btn pull-right waves-effect waves-light" style="background-color: rgb(50, 50, 95);color: white;" >Add Algorithm
+                            </a>
+                            <h3 class="box-title">Details</h3>
+
+                            <div class="table-responsive">
+                                <table class="table table-bordered" role="grid">
+                                    <thead>
+                                        <tr>
+                                            <th>Algorithm</th>
+                                            <th>Description</th>
+                                            <th>Action</th>
+                                        </tr>
+                                    </thead>
+                                     <tbody>
+                                        {% for algo in algorithms %}
+                                            <tr>
+                                                <td>{{algo.algo}}</td>
+                                                <td>{{algo.algo_desc}}</td>
+                                                <td>
+                                                    <div class="btn-toolbar ">
+                                                    <a href="{% url 'PropelRapp:edit_algo' algo.id %}" class="btn"><i class="fa fa-pencil" style="font-size: 15px;color: white;"></i></a>
+                                                    <a href="{% url 'PropelRapp:delete_algo' algo.id %}" class="btn btn1"><i class="fa fa-trash" style="font-size: 15px;color: white;"></i></a>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                        {% endfor %}
+                                    </tbody>
+                                </table>
+                            </div>
+
+                         {% if algorithms.has_other_pages %}
+                          <ul class="pagination">
+                            {% if algorithms.has_previous %}
+                              <li><a href="?page={{ algorithms.previous_page_number }}">&laquo;</a></li>
+                            {% else %}
+                              <li class="disabled"><span>&laquo;</span></li>
+                            {% endif %}
+                            {% for i in algorithms.paginator.page_range %}
+                              {% if algorithms.number == i %}
+                                <li class="active"><span>{{ i }} <span class="sr-only">(current)</span></span></li>
+                              {% else %}
+                                <li><a href="?page={{ i }}">{{ i }}</a></li>
+                              {% endif %}
+                            {% endfor %}
+                            {% if algorithms.has_next %}
+                              <li><a href="?page={{ algorithms.next_page_number }}">&raquo;</a></li>
+                            {% else %}
+                              <li class="disabled"><span>&raquo;</span></li>
+                            {% endif %}
+                          </ul>
+                        {% endif %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+        </div>
+
+
+
+
+{% endblock %}

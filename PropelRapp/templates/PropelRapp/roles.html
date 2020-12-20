@@ -1,0 +1,113 @@
+{% extends 'PropelRapp/base.html' %}
+
+{% block title %}Roles{% endblock %}
+
+{% block content %}
+
+    <div class="container-fluid">
+        <br>
+        <!-- /.row -->
+        <!-- ============================================================== -->
+        <!-- Different data widgets -->
+        <!-- ============================================================== -->
+        <!-- .row -->
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="white-box analytics-info">
+                    <div class="login-page">
+                        <div class="banner">
+                             <h2 class="head">Authorization</h2>
+                        </div>
+                        <form action="" method="POST">
+
+                            <div class="form-group">
+                                <label class="lables">Role Name</label>
+                              <input type="text" name="user" class="form-control" placeholder="Enter Role Name" required>
+                            </div>
+                            <div class="form-group">
+                                <label class="lables">Description</label>
+                              <input type="text" name="user" class="form-control" placeholder="Type here" required>
+                            </div>
+
+
+                            <div class="form-group">
+                              <label for="sel1" class="lables">Dashboard</label>
+                              <br>
+                              <div class="row">
+                                <div class="col-md-6">
+                                  <label>
+                                    <input type="checkbox" class="checkbox"> Total Visitors
+                                  </label>
+                                </div>
+                                <div class="col-md-6">
+                                  <label>
+                                    <input type="checkbox" class="checkbox" value=""> Age Gender count
+                                  </label>
+                                </div>
+                                <div class="col-md-6">
+                                    <label>
+                                      <input type="checkbox" class="checkbox" value="">Vehicle Count
+                                    </label>
+                                  </div>
+                                  <div class="col-md-6">
+                                    <label>
+                                      <input type="checkbox" class="checkbox" value="">Repeat Visitors Count
+                                    </label>
+                                  </div>
+                                  <div class="col-md-6">
+                                    <label>
+                                      <input type="checkbox" class="checkbox" value="">Camera Tampering Count
+                                    </label>
+                                  </div>
+                                  <div class="col-md-6">
+                                    <label>
+                                      <input type="checkbox" class="checkbox" value="">Repeat Vehicle Count
+                                    </label>
+                                  </div>
+                              </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="sel1" class="lables">Report</label>
+                                <br>
+                                <div class="row">
+                                  <div class="col-md-6">
+                                    <label>
+                                      <input type="checkbox" class="checkbox"> Total Visitors
+                                    </label>
+                                  </div>
+                                  <div class="col-md-6">
+                                    <label>
+                                      <input type="checkbox" class="checkbox" value=""> Age Gender count
+                                    </label>
+                                  </div>
+                                  <div class="col-md-6">
+                                      <label>
+                                        <input type="checkbox" class="checkbox" value="">Vehicle Count
+                                      </label>
+                                    </div>
+                                    <div class="col-md-6">
+                                      <label>
+                                        <input type="checkbox" class="checkbox" value="">Repeat Visitors Count
+                                      </label>
+                                    </div>
+                                    <div class="col-md-6">
+                                      <label>
+                                        <input type="checkbox" class="checkbox" value="">Camera Tampering Count
+                                      </label>
+                                    </div>
+                                    <div class="col-md-6">
+                                      <label>
+                                        <input type="checkbox" class="checkbox" value="">Repeat Vehicle Count
+                                      </label>
+                                    </div>
+                                </div>
+                              </div>
+                            <button type="submit" class="btn">Submit</button>
+                        </form>
+                  </div>
+            </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
